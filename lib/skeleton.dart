@@ -28,25 +28,10 @@ class Skeleton extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        Text(
-                          "ByBugWeb!",
-                          style: GoogleFonts.poppins(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "Software&Development",
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: Colors.white70,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                    Image.asset(
+                      "/assets/images/logo-classic.png",
+                      width: 100,
+                      height: 100,
                     ),
                     Row(
                       children: [
