@@ -168,6 +168,11 @@ class HomePageDesktop extends StatelessWidget {
                               "Geliştiriciler için ByBug Servislerine, ürün ve hizmetlerine erişim sağlayabilmelerini sağlayan dökümantasyona erişmek çok kolay!",
                           icon: Icons.code),
                       const IconTitleText(
+                          title: "ByBug Blog",
+                          subtitle:
+                              "Blog yazarlarımız tarafından yayınlanan yazılarımıza ulaşmak, yazılar yayımlamak ve yayımlananları okumak için ByBug Blog'u ziyaret edin.",
+                          icon: Icons.code),
+                      const IconTitleText(
                           title: "ByBug Akademi",
                           subtitle:
                               "ByBug Projeler Grubunun sağladığı ByBug Akademi Resmi Web Uygulaması",

@@ -7,7 +7,12 @@ import 'widget/button.dart';
 
 class Skeleton extends StatelessWidget {
   Widget child;
-  Skeleton({super.key, required this.child});
+  String? title;
+  Skeleton({
+    super.key,
+    required this.child,
+    this.title,
+  });
   final homeScrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class Skeleton extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "ByBugWeb!",
+                          title ?? "ByBugWeb!",
                           style: GoogleFonts.poppins(
                             fontSize: 25,
                             color: Colors.white,
