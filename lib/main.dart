@@ -1,11 +1,17 @@
-import 'package:bybug/page/desktop/fast_order.dart';
 import 'package:bybug/page/desktop/home.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:bybug/page/phone/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'services/firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized;
   runApp(const MyApp());
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {

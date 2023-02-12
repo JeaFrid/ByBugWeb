@@ -37,6 +37,9 @@ dependencies:
   google_fonts: ^4.0.3
   get: ^4.6.5
   font_awesome_flutter: ^10.4.0
+  firebase_core: ^2.5.0
+  firebase_database: ^10.0.10
+  firebase_editor: ^0.0.2
 
 dev_dependencies:
   flutter_test:

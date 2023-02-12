@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "764006693075",
+    "firebase_url": "https://bybugweb-default-rtdb.firebaseio.com",
+    "project_id": "bybugweb",
+    "storage_bucket": "bybugweb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764006693075:android:dcb2d625af7cd1422b3c26",
+        "android_client_info": {
+          "package_name": "com.example.bybug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764006693075-t5etjnida6ffvcua3lfhfdnpve510p8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdCvhZVvpT4N28PTRk6dqZPxAG5SED9N0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764006693075-t5etjnida6ffvcua3lfhfdnpve510p8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
