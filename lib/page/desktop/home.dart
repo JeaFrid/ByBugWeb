@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../skeleton.dart';
 import '../../theme/color.dart';
+import '../../utils/random_generator.dart';
 import '../../widget/banner.dart';
 
 class HomePageDesktop extends StatelessWidget {

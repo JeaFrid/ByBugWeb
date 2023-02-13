@@ -224,7 +224,7 @@ class BlogAddCard extends StatelessWidget {
                               Expanded(
                                 child: Center(
                                   child: Text(
-                                    "ByBug Hızlı Sipariş Platformu",
+                                    "Blog Oluştur!",
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.poppins(
                                       fontSize: 25,
@@ -237,7 +237,7 @@ class BlogAddCard extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            "ByBug Hızlı Sipariş Platformuna hoşgeldiniz! Burada projenizi renklendirmek için size hizmet veriyoruz. Teknolojiye senaryo yazmaya hazır mısın? Hadi metin kutularını doldurmaya başla ve projeni birlikte hayata geçirelim!",
+                            "Yeni bir blog oluştururken, sol taraftan nasıl görüneceğini canlı olarak test edin.",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
                               fontSize: 16,

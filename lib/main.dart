@@ -1,6 +1,7 @@
 import 'package:bybug/page/desktop/home.dart';
 import 'package:bybug/page/desktop/page-blog/blog-add.dart';
 import 'package:bybug/page/desktop/page-blog/home.dart';
+import 'package:bybug/utils/random_generator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:bybug/page/phone/home.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(body: LayoutBuilder(
         builder: (p0, p1) {
           // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
-          return BlogAdd();
+          return const HomePageDesktop();
         },
       )),
     );
