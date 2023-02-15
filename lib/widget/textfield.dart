@@ -4,11 +4,15 @@ import '../page/desktop/page-blog/blog-add.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
-  final textfieldController;
+  final TextEditingController textfieldController;
+  final TextInputType? type;
+  final bool? password;
   const CustomTextField({
     super.key,
     required this.textfieldController,
     required this.labelText,
+    this.type,
+    this.password,
   });
 
   @override
@@ -18,8 +22,9 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: textfieldController,
         style: const TextStyle(color: Colors.white70, fontSize: 14),
-        keyboardType: TextInputType.multiline,
-        maxLines: null,
+        keyboardType: type ?? TextInputType.multiline,
+        obscureText: password ?? false,
+        maxLines: password == true ? 1 : null,
         decoration: InputDecoration(
           hintStyle: const TextStyle(color: Colors.white30),
           labelText: labelText,

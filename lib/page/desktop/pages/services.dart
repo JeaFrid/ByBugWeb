@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../theme/color.dart';
+import '../../../theme/color.dart';
 
 class ServicesPage extends StatelessWidget {
   const ServicesPage({super.key});

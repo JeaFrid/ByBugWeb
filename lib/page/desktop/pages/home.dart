@@ -1,4 +1,3 @@
-import 'package:bybug/page/desktop/fast_order.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/icon_title_text.dart';
 import 'package:bybug/widget/score.dart';
@@ -6,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../skeleton.dart';
-import '../../theme/color.dart';
-import '../../utils/random_generator.dart';
-import '../../widget/banner.dart';
+import '../../../skeleton.dart';
+import '../../../theme/color.dart';
+import '../../../widget/banner.dart';
+import 'fast_order.dart';
 
 class HomePageDesktop extends StatelessWidget {
   const HomePageDesktop({super.key});

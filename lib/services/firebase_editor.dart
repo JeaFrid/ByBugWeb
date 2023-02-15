@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FirebaseEditor {
@@ -44,7 +45,7 @@ class FirebaseEditor {
     return sendValue;
   }
 
-  static Future<User?> register(
+  static Future<List> register(
       String email, String password, List userDatas) async {
     final FirebaseAuth auth = FirebaseAuth.instance;
     try {
@@ -52,23 +53,21 @@ class FirebaseEditor {
           email: email, password: password);
 
       await FirebaseEditor.storeValue("users", user.user!.uid, userDatas);
-      return user.user;
+      return [1, user.user];
     } catch (e) {
-      Get.snackbar("Error!", e.toString());
+      return [0, e.toString()];
     }
-    return null;
   }
 
-  static Future<User?> login(String email, String password) async {
+  static Future<List> login(String email, String password) async {
     final FirebaseAuth auth = FirebaseAuth.instance;
     try {
       var user = await auth.signInWithEmailAndPassword(
           email: email, password: password);
-      return user.user;
+      return [1, user.user];
     } catch (e) {
-      Get.snackbar("Error!", e.toString());
+      return [0, e.toString()];
     }
-    return null;
   }
 
   static logout() async {

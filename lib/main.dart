@@ -1,9 +1,11 @@
+import 'package:bybug/page/desktop/auth/login.dart';
 import 'package:bybug/page/desktop/page-blog/blog-add.dart';
 import 'package:bybug/page/desktop/page-blog/blog-content.dart';
 import 'package:bybug/page/desktop/page-blog/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'page/desktop/auth/register.dart';
 import 'services/firebase_options.dart';
 
 Future<void> main() async {
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(body: LayoutBuilder(
         builder: (p0, p1) {
           // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
-          return BlogContent(tag: '"dfgdfgs"');
+          return LoginPage();
         },
       )),
     );
