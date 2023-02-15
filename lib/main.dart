@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'page/desktop/auth/register.dart';
+import 'page/desktop/profile/profile.dart';
 import 'services/firebase_options.dart';
 
 Future<void> main() async {
@@ -30,7 +31,10 @@ class MyApp extends StatelessWidget {
       home: Scaffold(body: LayoutBuilder(
         builder: (p0, p1) {
           // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
-          return LoginPage();
+          return const ProfilePage(
+            profilePhoto:
+                "https://raw.githubusercontent.com/JeaFrid/ByBugWeb/master/assets/images/logo-classic.png",
+          );
         },
       )),
     );

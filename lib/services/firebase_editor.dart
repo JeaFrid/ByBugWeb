@@ -80,4 +80,13 @@ class FirebaseEditor {
     String uid = auth.currentUser!.uid;
     return uid;
   }
+
+  static Future<bool> isSignedIn() async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    if (auth.currentUser != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
