@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../theme/color.dart';
-import '../../../widget/blog.dart';
+import '../../../services/firebase_editor.dart';
+import '../../../utils/random_generator.dart';
 import '../../../widget/button.dart';
-import '../../../widget/textfield.dart';
 
 final toptitle = TextEditingController();
 final title = TextEditingController();
@@ -482,9 +481,24 @@ class BlogAddCard extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                CustomButton(title: "Bize Ulaş"),
+                                CustomButton(title: "Hata Bildir"),
                                 const SizedBox(width: 20),
-                                CustomButton(title: "Sipariş Sepeti Oluştur"),
+                                CustomButton(
+                                    title: "Paylaş",
+                                    event: () async {
+                                      FirebaseEditor.storeValue(
+                                        "blog",
+                                        JeaRandom.string(10),
+                                        [
+                                          toptitleRx.value,
+                                          titleRx.value,
+                                          subtitleRx.value,
+                                          imageRx.value,
+                                          contentRx.value,
+                                          buttonTextRx.value,
+                                        ],
+                                      );
+                                    }),
                               ],
                             )
                           ],

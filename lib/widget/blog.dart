@@ -41,6 +41,12 @@ class BlogWidget extends StatelessWidget {
                 image ??
                     "https://raw.githubusercontent.com/JeaFrid/ByBugWeb/master/assets/images/logo-classic.png",
                 width: constraints.maxWidth / 2 - constraints.maxWidth / 6,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.network(
+                    "https://raw.githubusercontent.com/JeaFrid/ByBugWeb/master/assets/images/logo-classic.png",
+                    width: constraints.maxWidth / 2 - constraints.maxWidth / 6,
+                  );
+                },
               ),
             ),
             Expanded(

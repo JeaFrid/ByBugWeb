@@ -14,8 +14,17 @@ class Skeleton extends StatelessWidget {
     this.title,
   });
   final homeScrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (p0, p1) {
+        return p1.maxWidth > 680 ? pc(p1) : mobile(p1);
+      },
+    );
+  }
+
+  Scaffold pc(BoxConstraints p1) {
     return Scaffold(
       backgroundColor: ThemeColors().backgroundColor,
       body: GestureDetector(
@@ -56,7 +65,7 @@ class Skeleton extends StatelessWidget {
                     Row(
                       children: [
                         CustomButton(
-                          title: "Ev",
+                          title: p1.maxWidth.toString(),
                           event: () => Get.offAll(HomePageDesktop()),
                         ),
                         CustomButton(
@@ -82,6 +91,58 @@ class Skeleton extends StatelessWidget {
         ),
       ),
     );
-    ;
+  }
+
+  Scaffold mobile(BoxConstraints p1) {
+    return Scaffold(
+      backgroundColor: ThemeColors().backgroundColor,
+      body: GestureDetector(
+        onVerticalDragUpdate: (details) {
+          homeScrollController
+              .jumpTo(homeScrollController.offset - details.delta.dy);
+        },
+        child: SingleChildScrollView(
+          controller: homeScrollController,
+          child: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 50, horizontal: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Icon(Icons.menu, color: Colors.white, size: 25),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          title ?? "ByBugWeb!",
+                          style: GoogleFonts.poppins(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "Software&Development",
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            color: Colors.white70,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              child
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
