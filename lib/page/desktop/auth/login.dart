@@ -59,13 +59,14 @@ class LoginPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             CustomTextField(
-                                type: TextInputType.emailAddress,
+                                type: 3,
                                 textfieldController: emailController,
                                 labelText: "E-posta"),
                             CustomTextField(
-                                textfieldController: passwordController,
-                                labelText: "Parola",
-                                password: true),
+                              type: 2,
+                              textfieldController: passwordController,
+                              labelText: "Parola",
+                            ),
                             Padding(
                               padding: const EdgeInsets.all(10),
                               child: Row(

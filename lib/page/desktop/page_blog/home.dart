@@ -1,4 +1,4 @@
-import 'package:bybug/page/desktop/page-blog/blog-add.dart';
+import 'package:bybug/page/desktop/page_blog/blog_add.dart';
 import 'package:bybug/services/get_blog.dart';
 import 'package:bybug/skeleton.dart';
 import 'package:bybug/theme/color.dart';

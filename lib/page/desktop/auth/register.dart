@@ -1,3 +1,4 @@
+import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/textfield.dart';
@@ -7,10 +8,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
+  RxString ip = "".obs;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-  final emailController = TextEditingController();
-  final nameController = TextEditingController();
-  final passwordController = TextEditingController();
+  final String nowTime =
+      "${DateTime.now().day}-${DateTime.now().month}-${DateTime.now().year} ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}";
 
   @override
   Widget build(BuildContext context) {
@@ -58,24 +62,28 @@ class RegisterPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             CustomTextField(
-                                type: TextInputType.name,
+                                type: 4,
                                 textfieldController: nameController,
                                 labelText: "Kullanıcı Adı"),
                             CustomTextField(
-                                type: TextInputType.emailAddress,
+                                type: 3,
                                 textfieldController: emailController,
                                 labelText: "E-posta"),
                             CustomTextField(
-                                textfieldController: passwordController,
-                                labelText: "Parola",
-                                password: true),
+                              type: 2,
+                              textfieldController: passwordController,
+                              labelText: "Parola",
+                            ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Kayıt olarak ByBug'ın Gizlilik Sözleşmesini kabul etmiş olursunuz.",
-                                style: GoogleFonts.openSans(
-                                  fontSize: 12,
-                                  color: Colors.white,
+                              child: Obx(
+                                () => Text(
+                                  // "Kayıt olarak ByBug'ın Gizlilik Sözleşmesini kabul etmiş olursunuz.",
+                                  ip.value,
+                                  style: GoogleFonts.openSans(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -145,7 +153,23 @@ class RegisterPage extends StatelessWidget {
                               padding: const EdgeInsets.all(12),
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
-                                onTap: () {},
+                                onTap: () async {
+                                  /* FirebaseEditor.register(
+                                    emailController.text,
+                                    passwordController.text,
+                                    [
+                                      nameController.text,
+                                      emailController.text,
+                                      passwordController.text,
+                                    ],
+                                  );
+                                  final dio = Dio();
+                                  final response =
+                                      await dio.get('https://api.ipify.org/');
+                                      
+                                  ip.value = response.headers.toString();
+                               */
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(

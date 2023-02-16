@@ -1,7 +1,7 @@
 import 'package:bybug/page/desktop/auth/login.dart';
-import 'package:bybug/page/desktop/page-blog/blog-add.dart';
-import 'package:bybug/page/desktop/page-blog/blog-content.dart';
-import 'package:bybug/page/desktop/page-blog/home.dart';
+import 'package:bybug/page/desktop/page_blog/blog_add.dart';
+import 'package:bybug/page/desktop/page_blog/blog-content.dart';
+import 'package:bybug/page/desktop/page_blog/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,15 +28,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: Scaffold(body: LayoutBuilder(
-        builder: (p0, p1) {
-          // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
-          return const ProfilePage(
-            profilePhoto:
-                "https://raw.githubusercontent.com/JeaFrid/ByBugWeb/master/assets/images/logo-classic.png",
-          );
-        },
-      )),
+      home: Scaffold(
+        body: LayoutBuilder(
+          builder: (p0, p1) {
+            // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
+            return RegisterPage();
+          },
+        ),
+      ),
     );
   }
 }

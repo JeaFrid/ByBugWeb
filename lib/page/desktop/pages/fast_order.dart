@@ -1,4 +1,3 @@
-
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/textfield.dart';
@@ -90,27 +89,27 @@ class FastOrder extends StatelessWidget {
                             child: Column(
                               children: [
                                 CustomTextField(
-                                    type: TextInputType.multiline,
+                                    type: 1,
                                     textfieldController: projeAdi,
                                     labelText: "Proje Adı / Uygulama Adı"),
                                 CustomTextField(
-                                    type: TextInputType.multiline,
+                                    type: 1,
                                     textfieldController: sektorAdi,
                                     labelText: "Projenin Hitap Ettiği Sektör"),
                                 CustomTextField(
-                                    type: TextInputType.multiline,
+                                    type: 1,
                                     textfieldController: projeDetaylari,
                                     labelText: "Proje Detayları"),
                                 CustomTextField(
-                                    type: TextInputType.multiline,
+                                    type: 1,
                                     textfieldController: ortalamaButce,
                                     labelText: "Ortalama Bütçe"),
                                 CustomTextField(
-                                    type: TextInputType.multiline,
+                                    type: 1,
                                     textfieldController: eposta,
                                     labelText: "E-posta Adresi"),
                                 CustomTextField(
-                                    type: TextInputType.multiline,
+                                    type: 1,
                                     textfieldController: telegram,
                                     labelText: "Telegram Adresi"),
                                 Row(
