@@ -132,8 +132,7 @@ class LoginPage extends StatelessWidget {
                               child: CustomButton(
                                 title: "Giriş Yap",
                                 event: () async {
-                                  List result = await FirebaseEditor.login(
-                                      emailController.text,
+                                  FirebaseEditor.login(emailController.text,
                                       passwordController.text);
                                 },
                               ),

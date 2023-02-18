@@ -1,3 +1,4 @@
+import 'package:bybug/page/desktop/profile/profile.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
@@ -8,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
-  RxString ip = "".obs;
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -76,14 +77,11 @@ class RegisterPage extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Obx(
-                                () => Text(
-                                  // "Kayıt olarak ByBug'ın Gizlilik Sözleşmesini kabul etmiş olursunuz.",
-                                  ip.value,
-                                  style: GoogleFonts.openSans(
-                                    fontSize: 12,
-                                    color: Colors.white,
-                                  ),
+                              child: Text(
+                                "Kayıt olarak ByBug'ın Gizlilik Sözleşmesini kabul etmiş olursunuz.",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 12,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -147,28 +145,35 @@ class RegisterPage extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.all(15),
-                              child: CustomButton(title: "Kayıt Ol"),
+                              child: CustomButton(
+                                title: "Kayıt Ol",
+                                event: () async {
+                                  List messageList =
+                                      await FirebaseEditor.register(
+                                    emailController.text,
+                                    passwordController.text,
+                                    [
+                                      "https://raw.githubusercontent.com/JeaFrid/ByBugWeb/master/assets/images/logo-classic.png",
+                                      nameController.text,
+                                      emailController.text,
+                                      passwordController.text,
+                                      nowTime,
+                                      "Türkiye"
+                                    ],
+                                  );
+                                  messageList[0] == "1"
+                                      ? Get.offAll(const ProfilePage())
+                                      : Get.snackbar("Uyarı", messageList[1],
+                                          colorText: Colors.white);
+                                },
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(12),
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
-                                onTap: () async {
-                                  /* FirebaseEditor.register(
-                                    emailController.text,
-                                    passwordController.text,
-                                    [
-                                      nameController.text,
-                                      emailController.text,
-                                      passwordController.text,
-                                    ],
-                                  );
-                                  final dio = Dio();
-                                  final response =
-                                      await dio.get('https://api.ipify.org/');
-                                      
-                                  ip.value = response.headers.toString();
-                               */
+                                onTap: () {
+                                  Get.back();
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),

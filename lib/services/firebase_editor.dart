@@ -1,7 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class FirebaseEditor {
   ///It stores data to <b>Firebase Realtime Database.</b>
@@ -53,9 +51,9 @@ class FirebaseEditor {
           email: email, password: password);
 
       await FirebaseEditor.storeValue("users", user.user!.uid, userDatas);
-      return [1, user.user];
+      return [1.toString(), user.user.toString()];
     } catch (e) {
-      return [0, e.toString()];
+      return [0.toString(), e.toString()];
     }
   }
 
@@ -81,12 +79,36 @@ class FirebaseEditor {
     return uid;
   }
 
-  static Future<bool> isSignedIn() async {
+  static bool isSignedIn() {
     final FirebaseAuth auth = FirebaseAuth.instance;
     if (auth.currentUser != null) {
       return true;
     } else {
       return false;
+    }
+  }
+
+  static Future<List> getProfile() async {
+    if (FirebaseEditor.isSignedIn()) {
+      FirebaseAuth auth = FirebaseAuth.instance;
+      String getUid = auth.currentUser!.uid;
+      DatabaseReference ref = FirebaseDatabase.instance.ref("users");
+      DataSnapshot snapshot = await ref.get();
+      Map mapX = snapshot.value as Map;
+      String user = "";
+      List mapList = mapX.keys.toList();
+
+      for (var i = 0; i < mapList.length; i++) {
+        if (mapList[i].toString().contains(getUid)) {
+          user = mapList[i];
+        }
+      }
+      DatabaseReference refer = FirebaseDatabase.instance.ref("users/$user");
+      DataSnapshot snapval = await refer.get();
+
+      return FirebaseEditor.decode(snapval.value.toString());
+    } else {
+      return [];
     }
   }
 }

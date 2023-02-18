@@ -13,7 +13,7 @@ class FastOrder extends StatelessWidget {
   final ortalamaButce = TextEditingController();
   final eposta = TextEditingController();
   final telegram = TextEditingController();
-  var scrollView = ScrollController();
+  final scrollView = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,9 +113,9 @@ class FastOrder extends StatelessWidget {
                                     textfieldController: telegram,
                                     labelText: "Telegram Adresi"),
                                 Row(
-                                  children: [
+                                  children: const [
                                     CustomButton(title: "Bize Ulaş"),
-                                    const SizedBox(width: 20),
+                                    SizedBox(width: 20),
                                     CustomButton(
                                         title: "Sipariş Sepeti Oluştur"),
                                   ],

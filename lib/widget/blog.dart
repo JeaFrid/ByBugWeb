@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../theme/color.dart';
-
 class BlogWidget extends StatelessWidget {
-  void Function()? event;
-  BoxConstraints constraints;
-  String? buttonText;
-  String? image;
-  String? topTitle;
-  String? title;
-  String? subtitle;
-  String? goToLink;
+  final void Function()? event;
+  final BoxConstraints constraints;
+  final String? buttonText;
+  final String? image;
+  final String? topTitle;
+  final String? title;
+  final String? subtitle;
+  final String? goToLink;
 
-  BlogWidget({
+  const BlogWidget({
     super.key,
     required this.constraints,
     this.event,

@@ -1,3 +1,4 @@
+import 'package:bybug/page/desktop/page_blog/home.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/icon_title_text.dart';
 import 'package:bybug/widget/score.dart';
@@ -133,7 +134,9 @@ class HomePageDesktop extends StatelessWidget {
                 const SizedBox(height: 20),
                 CustomButton(
                   title: "Teklif Al",
-                  event: () {},
+                  event: () {
+                    Get.to(FastOrder());
+                  },
                 ),
                 const SizedBox(height: 20),
                 Padding(
@@ -167,8 +170,9 @@ class HomePageDesktop extends StatelessWidget {
                           subtitle:
                               "Geliştiriciler için ByBug Servislerine, ürün ve hizmetlerine erişim sağlayabilmelerini sağlayan dökümantasyona erişmek çok kolay!",
                           icon: Icons.code),
-                      const IconTitleText(
+                      IconTitleText(
                           title: "ByBug Blog",
+                          event: () => Get.to(const HomeBlog()),
                           subtitle:
                               "Blog yazarlarımız tarafından yayınlanan yazılarımıza ulaşmak, yazılar yayımlamak ve yayımlananları okumak için ByBug Blog'u ziyaret edin.",
                           icon: Icons.code),
@@ -182,21 +186,21 @@ class HomePageDesktop extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Wrap(
-                  children: [
+                  children: const [
                     ScoreWidget(
                       scoreText: "Toplam Sipariş Sayısı",
                       score: "24",
-                      color: const Color.fromARGB(255, 13, 18, 31),
+                      color: Color.fromARGB(255, 13, 18, 31),
                     ),
                     ScoreWidget(
                       scoreText: "Toplam Bağımsız Proje Sayısı",
                       score: "3",
-                      color: const Color.fromARGB(255, 13, 18, 31),
+                      color: Color.fromARGB(255, 13, 18, 31),
                     ),
                     ScoreWidget(
                       scoreText: "Destek Olduğumuz Proje Sayısı",
                       score: "52",
-                      color: const Color.fromARGB(255, 13, 18, 31),
+                      color: Color.fromARGB(255, 13, 18, 31),
                     ),
                   ],
                 ),

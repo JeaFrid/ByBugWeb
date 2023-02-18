@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ScoreWidget extends StatelessWidget {
-  String scoreText;
-  String score;
-  Color? color;
-  double? padding;
-  double? margin;
+  final String scoreText;
+  final String score;
+  final Color? color;
+  final double? padding;
+  final double? margin;
 
-  ScoreWidget({
+  const ScoreWidget({
     super.key,
     required this.scoreText,
     required this.score,

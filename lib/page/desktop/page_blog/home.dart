@@ -1,4 +1,6 @@
+import 'package:bybug/page/desktop/auth/register.dart';
 import 'package:bybug/page/desktop/page_blog/blog_add.dart';
+import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/services/get_blog.dart';
 import 'package:bybug/skeleton.dart';
 import 'package:bybug/theme/color.dart';
@@ -14,12 +16,14 @@ class HomeBlog extends StatefulWidget {
 }
 
 class _HomeBlogState extends State<HomeBlog> {
+  bool isSing = false;
   final homeScrollController = ScrollController();
   RxList blogList = [].obs;
   RxString status = "Yükleniyor...".obs;
   Future<void> getBlog() async {
     blogList.value = await Blog.getOnce();
     status.value = "Yüklendi.";
+    isSing = FirebaseEditor.isSignedIn();
   }
 
   @override
@@ -78,7 +82,7 @@ class _HomeBlogState extends State<HomeBlog> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(BlogAdd());
+          isSing ? Get.to(const BlogAdd()) : Get.to(RegisterPage());
         },
         child: const Icon(Icons.add),
       ),

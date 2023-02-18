@@ -19,7 +19,7 @@ class BlogContent extends StatefulWidget {
 
 class _BlogContentState extends State<BlogContent> {
   final RxList content = [].obs;
-  RxBool isLoading = false.obs;
+  final RxBool isLoading = false.obs;
 
   Future<void> getBlog() async {
     content.value = await Blog.getBlogContent(widget.tag);
@@ -35,7 +35,7 @@ class _BlogContentState extends State<BlogContent> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return isLoading == false
+      return isLoading.value == false
           ? Scaffold(
               backgroundColor: ThemeColors().backgroundColor,
               body: const Center(
@@ -84,8 +84,8 @@ class _BlogContentState extends State<BlogContent> {
                                             : constraints.maxWidth < 950
                                                 ? 14
                                                 : 16,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
+                                        color: const Color.fromARGB(
+                                            255, 255, 255, 255),
                                         //fontWeight: FontWeight.bold,
                                       ),
                                     ),

@@ -482,7 +482,7 @@ class BlogAddCard extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  CustomButton(title: "Hata Bildir"),
+                                  const CustomButton(title: "Hata Bildir"),
                                   const SizedBox(width: 20),
                                   CustomButton(
                                       title: "Paylaş",

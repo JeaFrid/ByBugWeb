@@ -1,3 +1,6 @@
+import 'package:bybug/page/desktop/auth/register.dart';
+import 'package:bybug/page/desktop/profile/profile.dart';
+import 'package:bybug/services/firebase_editor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,15 +8,39 @@ import 'page/desktop/pages/home.dart';
 import 'theme/color.dart';
 import 'widget/button.dart';
 
-class Skeleton extends StatelessWidget {
-  Widget child;
-  String? title;
-  Skeleton({
+class Skeleton extends StatefulWidget {
+  final Widget child;
+  final String? title;
+  const Skeleton({
     super.key,
     required this.child,
     this.title,
   });
+
+  @override
+  State<Skeleton> createState() => _SkeletonState();
+}
+
+class _SkeletonState extends State<Skeleton> {
   final homeScrollController = ScrollController();
+  final RxBool status = true.obs;
+  final RxString profilePhotos = "".obs;
+  final bool isSign = FirebaseEditor.isSignedIn();
+  Future<void> profileStatus() async {
+    if (isSign) {
+      final List profileList = await FirebaseEditor.getProfile();
+      profilePhotos.value = profileList[1].toString().replaceAll(" ", "");
+      status.value = false;
+    } else {
+      status.value = false;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    profileStatus();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +72,7 @@ class Skeleton extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          title ?? "ByBugWeb!",
+                          widget.title ?? "ByBugWeb!",
                           style: GoogleFonts.poppins(
                             fontSize: 25,
                             color: Colors.white,
@@ -66,26 +93,93 @@ class Skeleton extends StatelessWidget {
                       children: [
                         CustomButton(
                           title: p1.maxWidth.toString(),
-                          event: () => Get.offAll(HomePageDesktop()),
+                          event: () => Get.offAll(const HomePageDesktop()),
                         ),
                         CustomButton(
                           title: "Market",
-                          event: () => Get.offAll(HomePageDesktop()),
+                          event: () => Get.offAll(const HomePageDesktop()),
                         ),
                         CustomButton(
                           title: "Bize Ulaş",
-                          event: () => Get.offAll(HomePageDesktop()),
+                          event: () => Get.offAll(const HomePageDesktop()),
                         ),
                         CustomButton(
                           title: "Hakkımızda",
-                          event: () => Get.offAll(HomePageDesktop()),
+                          event: () => Get.offAll(const HomePageDesktop()),
+                        ),
+                        Obx(
+                          () => SizedBox(
+                            child: status.value == true
+                                ? const SizedBox(
+                                    height: 15,
+                                    width: 15,
+                                    child: CircularProgressIndicator(
+                                        color: Colors.white60, strokeWidth: 2),
+                                  )
+                                : isSign == false
+                                    ? Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        child: InkWell(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          onTap: () => Get.to(RegisterPage()),
+                                          hoverColor: const Color.fromARGB(
+                                              255, 19, 24, 40),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                color: Colors.white70,
+                                                width: 2,
+                                              ),
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 5, horizontal: 16),
+                                            child: Text(
+                                              "Kayıt Ol",
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        child: InkWell(
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          splashColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () =>
+                                              Get.to(const ProfilePage()),
+                                          child: Image.network(
+                                            profilePhotos.value,
+                                            width: 40,
+                                            height: 40,
+                                            errorBuilder:
+                                                (context, error, stackTrace) {
+                                              return Image.asset(
+                                                "assets/images/logo-classic.png",
+                                                width: 40,
+                                                height: 40,
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                          ),
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
-              child
+              widget.child
             ],
           ),
         ),
@@ -118,7 +212,7 @@ class Skeleton extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          title ?? "ByBugWeb!",
+                          widget.title ?? "ByBugWeb!",
                           style: GoogleFonts.poppins(
                             fontSize: 25,
                             color: Colors.white,
@@ -138,7 +232,7 @@ class Skeleton extends StatelessWidget {
                   ],
                 ),
               ),
-              child
+              widget.child
             ],
           ),
         ),

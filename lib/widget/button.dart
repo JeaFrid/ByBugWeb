@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../theme/color.dart';
 
 class CustomButton extends StatelessWidget {
-  String title;
-  void Function()? event;
-  CustomButton({super.key, required this.title, this.event});
+  final String title;
+  final void Function()? event;
+  const CustomButton({super.key, required this.title, this.event});
 
   @override
   Widget build(BuildContext context) {

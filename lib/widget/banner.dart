@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BannerWidget extends StatelessWidget {
-  BoxConstraints constraints;
-  bool left;
-  String image;
-  String miniTitle;
-  String title;
-  String subtitle;
-  BannerWidget({
+  final BoxConstraints constraints;
+  final bool left;
+  final String image;
+  final String miniTitle;
+  final String title;
+  final String subtitle;
+  const BannerWidget({
     super.key,
     required this.constraints,
     required this.left,
