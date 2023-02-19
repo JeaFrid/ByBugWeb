@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         body: LayoutBuilder(
           builder: (p0, p1) {
             // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
-            return AddDataPage();
+            return ShopPage();
           },
         ),
       ),

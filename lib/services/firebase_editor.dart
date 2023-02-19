@@ -17,6 +17,19 @@ class FirebaseEditor {
     }
   }
 
+  static Future<List> getOnce(String reference) async {
+    DatabaseReference ref = FirebaseDatabase.instance.ref(reference);
+    DataSnapshot snapshot = await ref.get();
+
+    Map mapX = snapshot.value as Map;
+    List retVal = [];
+    for (var i = 0; i < mapX.keys.length; i++) {
+      retVal.add(FirebaseEditor.decodeAndTagAddEndElement(
+          mapX.keys.elementAt(i), mapX.values.elementAt(i)));
+    }
+    return retVal;
+  }
+
   ///It pulls data from Firebase Realtime Database.
   ///<br>Data must be pulled with a password provided by FirebaseEditor.
   ///<br>If you try to pull a different data, an error may occur.

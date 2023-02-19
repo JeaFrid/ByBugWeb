@@ -1,5 +1,6 @@
 import 'package:bybug/page/desktop/page_blog/home.dart';
 import 'package:bybug/page/desktop/pages/comingsoon.dart';
+import 'package:bybug/page/desktop/shop/shop.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/icon_title_text.dart';
 import 'package:bybug/widget/score.dart';
@@ -164,7 +165,7 @@ class HomePageDesktop extends StatelessWidget {
                               "Birçok aktif hizmetimiz var ve sizler için geliştirmeye devam ediyoruz. Hizmetlerimiz hakkında detaylı bilgi ve destek almak için buraya tıklayın.",
                           icon: Icons.account_tree_sharp),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Get.to(ShopPage()),
                           title: "Teknoloji Marketi",
                           subtitle:
                               "Birçok yazılım ürününün bulunduğu ByBug Sanal Marketine giderek daha fazla hazır ürünü satın alabilir ve direkt kullanmaya başlayabilirsiniz.",

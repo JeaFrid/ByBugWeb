@@ -8,6 +8,7 @@ class AddProduct extends StatelessWidget {
   String productType = "";
   String price = "";
   String discount = "";
+  String downloadLink = "";
 
   AddProduct({
     super.key,
@@ -17,6 +18,7 @@ class AddProduct extends StatelessWidget {
     required this.category,
     required this.price,
     required this.discount,
+    required this.downloadLink,
   });
 
   @override
