@@ -1,4 +1,5 @@
 import 'package:bybug/page/desktop/page_blog/home.dart';
+import 'package:bybug/page/desktop/pages/comingsoon.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/icon_title_text.dart';
 import 'package:bybug/widget/score.dart';
@@ -150,22 +151,26 @@ class HomePageDesktop extends StatelessWidget {
                             "Müşteri Temsilcilerine bağlanmadan, hızla sipariş notunu oluştur ve ortalama bütçene göre projene değer biçelim!",
                         icon: Icons.shopping_cart,
                       ),
-                      const IconTitleText(
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
                           title: "Müşteri Desteği",
                           subtitle:
                               "Bize sormak istediğiniz tüm sorular için Whatsapp ve Telegram hatlarımız sürekli olarak hizmetinizdedir.",
                           icon: Icons.help_center),
-                      const IconTitleText(
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
                           title: "Tüm Hizmetlerimiz",
                           subtitle:
                               "Birçok aktif hizmetimiz var ve sizler için geliştirmeye devam ediyoruz. Hizmetlerimiz hakkında detaylı bilgi ve destek almak için buraya tıklayın.",
                           icon: Icons.account_tree_sharp),
-                      const IconTitleText(
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
                           title: "Teknoloji Marketi",
                           subtitle:
                               "Birçok yazılım ürününün bulunduğu ByBug Sanal Marketine giderek daha fazla hazır ürünü satın alabilir ve direkt kullanmaya başlayabilirsiniz.",
                           icon: Icons.shopping_basket_sharp),
-                      const IconTitleText(
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
                           title: "Geliştirici Portalı",
                           subtitle:
                               "Geliştiriciler için ByBug Servislerine, ürün ve hizmetlerine erişim sağlayabilmelerini sağlayan dökümantasyona erişmek çok kolay!",
@@ -176,7 +181,8 @@ class HomePageDesktop extends StatelessWidget {
                           subtitle:
                               "Blog yazarlarımız tarafından yayınlanan yazılarımıza ulaşmak, yazılar yayımlamak ve yayımlananları okumak için ByBug Blog'u ziyaret edin.",
                           icon: Icons.code),
-                      const IconTitleText(
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
                           title: "ByBug Akademi",
                           subtitle:
                               "ByBug Projeler Grubunun sağladığı ByBug Akademi Resmi Web Uygulaması",

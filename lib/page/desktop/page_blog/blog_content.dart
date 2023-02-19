@@ -64,6 +64,8 @@ class _BlogContentState extends State<BlogContent> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               BlogWidget(
+                                goToLink: "",
+                                event: () {},
                                 constraints: constraints,
                                 topTitle: content[1],
                                 title: content[2],

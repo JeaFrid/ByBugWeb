@@ -1,3 +1,4 @@
+import 'package:bybug/page/desktop/page_blog/blog_add.dart';
 import 'package:bybug/page/desktop/pages/home.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/widget/button.dart';
@@ -137,8 +138,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                     event: () =>
                                         Get.to(const HomePageDesktop()),
                                   ),
-                                  const IconTitleText(
+                                  IconTitleText(
                                     title: "Blog Yaz!",
+                                    event: () => Get.to(const BlogAdd()),
                                     subtitle:
                                         "ByBug Blog'a bir blog yazısı bırakmak için bu modülü kullanabilirsiniz.",
                                     icon: Icons.text_snippet,

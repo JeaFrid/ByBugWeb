@@ -1,3 +1,4 @@
+import 'package:bybug/page/desktop/page_blog/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -487,7 +488,8 @@ class BlogAddCard extends StatelessWidget {
                                   CustomButton(
                                       title: "Paylaş",
                                       event: () async {
-                                        FirebaseEditor.storeValue(
+                                        String message =
+                                            await FirebaseEditor.storeValue(
                                           "blog",
                                           JeaRandom.string(10),
                                           [
@@ -499,6 +501,10 @@ class BlogAddCard extends StatelessWidget {
                                             buttonTextRx.value,
                                           ],
                                         );
+                                        message == "successful"
+                                            ? Get.offAll(const HomeBlog())
+                                            : Get.snackbar(
+                                                "Hata Oluştu!", message);
                                       }),
                                 ],
                               )

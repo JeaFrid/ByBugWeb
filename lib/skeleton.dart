@@ -92,7 +92,8 @@ class _SkeletonState extends State<Skeleton> {
                     Row(
                       children: [
                         CustomButton(
-                          title: p1.maxWidth.toString(),
+                          //  title: p1.maxWidth.toString(),
+                          title: "ByBugWeb",
                           event: () => Get.offAll(const HomePageDesktop()),
                         ),
                         CustomButton(

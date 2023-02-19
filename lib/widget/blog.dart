@@ -1,4 +1,6 @@
+import 'package:bybug/page/desktop/page_blog/blog_content.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BlogWidget extends StatelessWidget {
@@ -9,7 +11,7 @@ class BlogWidget extends StatelessWidget {
   final String? topTitle;
   final String? title;
   final String? subtitle;
-  final String? goToLink;
+  final String goToLink;
 
   const BlogWidget({
     super.key,
@@ -17,7 +19,7 @@ class BlogWidget extends StatelessWidget {
     this.event,
     this.image,
     this.buttonText,
-    this.goToLink,
+    required this.goToLink,
     this.subtitle,
     this.title,
     this.topTitle,
@@ -95,7 +97,10 @@ class BlogWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   InkWell(
-                    onTap: event ?? () {},
+                    onTap: event ??
+                        () {
+                          Get.to(BlogContent(tag: goToLink));
+                        },
                     hoverColor: Colors.transparent,
                     splashColor: const Color.fromARGB(5, 255, 255, 255),
                     child: Container(
