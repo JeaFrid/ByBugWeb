@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../theme/color.dart';
-
 class AddCustomButton extends StatelessWidget {
-  IconData icon;
-  String text;
+  final IconData icon;
+  final String text;
 
-  void Function() function;
+  final void Function() function;
 
-  AddCustomButton({
+  const AddCustomButton({
     super.key,
     required this.icon,
     required this.text,
@@ -51,12 +49,12 @@ class AddCustomButton extends StatelessWidget {
 }
 
 class AddCustomButtonAsync extends StatelessWidget {
-  IconData icon;
-  String text;
+  final IconData icon;
+  final String text;
 
-  Future<void> Function() futureFunction;
+  final Future<void> Function() futureFunction;
 
-  AddCustomButtonAsync({
+  const AddCustomButtonAsync({
     super.key,
     required this.icon,
     required this.text,

@@ -4,15 +4,13 @@ import 'package:bybug/widget/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../private/add_data.dart';
 import '../../../widget/product.dart';
 import '../../../widget/shop_button.dart';
 import '../../../widget/stories.dart';
 import '../../../widget/textfield.dart';
 
 class ShopPage extends StatefulWidget {
-  ShopPage({super.key});
+  const ShopPage({super.key});
 
   @override
   State<ShopPage> createState() => _ShopPageState();
@@ -25,9 +23,9 @@ class _ShopPageState extends State<ShopPage> {
   final storyScroll = ScrollController();
 
   ///Rx Veriables
-  RxList storyList = [].obs;
-  RxList productList = [].obs;
-  RxBool status = false.obs;
+  final RxList storyList = [].obs;
+  final RxList productList = [].obs;
+  final RxBool status = false.obs;
 
   ///Get Stories Function
   Future<void> getData() async {

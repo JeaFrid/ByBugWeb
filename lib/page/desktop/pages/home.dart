@@ -165,7 +165,7 @@ class HomePageDesktop extends StatelessWidget {
                               "Birçok aktif hizmetimiz var ve sizler için geliştirmeye devam ediyoruz. Hizmetlerimiz hakkında detaylı bilgi ve destek almak için buraya tıklayın.",
                           icon: Icons.account_tree_sharp),
                       IconTitleText(
-                          event: () => Get.to(ShopPage()),
+                          event: () => Get.to(const ShopPage()),
                           title: "Teknoloji Marketi",
                           subtitle:
                               "Birçok yazılım ürününün bulunduğu ByBug Sanal Marketine giderek daha fazla hazır ürünü satın alabilir ve direkt kullanmaya başlayabilirsiniz.",

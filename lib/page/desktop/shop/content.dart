@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:flutter/material.dart';

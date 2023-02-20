@@ -1,5 +1,4 @@
 import 'package:bybug/page/desktop/auth/login.dart';
-import 'package:bybug/page/desktop/auth/register.dart';
 import 'package:bybug/page/desktop/profile/profile.dart';
 import 'package:bybug/private/add_data.dart';
 import 'package:bybug/services/firebase_editor.dart';

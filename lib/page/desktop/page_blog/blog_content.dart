@@ -7,8 +7,8 @@ import '../../../theme/color.dart';
 import '../../../widget/blog.dart';
 
 class BlogContent extends StatefulWidget {
-  String tag = "";
-  BlogContent({
+  final String tag;
+  const BlogContent({
     super.key,
     required this.tag,
   });

@@ -1,4 +1,3 @@
-import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
