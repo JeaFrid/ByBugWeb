@@ -1,7 +1,8 @@
-import 'package:bybug/page/desktop/shop/content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../page/shop/content.dart';
 
 class AddProduct extends StatelessWidget {
   final String? image;

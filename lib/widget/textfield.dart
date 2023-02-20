@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
+
+  /// 1 = normal
+  /// </br>2 = parola
+  /// </br>3 = email
+  /// </br>4 = name
+  /// </br>5 = phone
   final int type;
   final TextEditingController textfieldController;
   const CustomTextField({
     super.key,
     required this.textfieldController,
     required this.labelText,
-
-    ///1 = normal
-    ///</br>2 = parola
-    ///</br>3 = email
-    ///</br>4 = name
-    ///</br>5 = phone
     required this.type,
   });
 

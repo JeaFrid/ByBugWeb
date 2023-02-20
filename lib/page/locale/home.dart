@@ -1,16 +1,15 @@
-import 'package:bybug/page/desktop/page_blog/home.dart';
-import 'package:bybug/page/desktop/pages/comingsoon.dart';
-import 'package:bybug/page/desktop/shop/shop.dart';
+import 'package:bybug/page/blog/home.dart';
+import 'package:bybug/page/locale/color.dart';
+import 'package:bybug/page/locale/comingsoon.dart';
+import 'package:bybug/pages/desktop/shop/shop.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/icon_title_text.dart';
-import 'package:bybug/widget/score.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../skeleton.dart';
 import '../../../theme/color.dart';
-import '../../../widget/banner.dart';
 import 'fast_order.dart';
 
 class HomePageDesktop extends StatelessWidget {
@@ -188,50 +187,56 @@ class HomePageDesktop extends StatelessWidget {
                           subtitle:
                               "ByBug Projeler Grubunun sağladığı ByBug Akademi Resmi Web Uygulaması",
                           icon: Icons.web),
+                      //Set Divider
+                      IconTitleText(
+                        event: () => Get.to(ColorConverter()),
+                        title: "Renk Dönüştürme Aracı",
+                        subtitle:
+                            "Tasarımcılar için online renk dönüştürme aracı. Hızlı, basit, işlevsel!",
+                        icon: Icons.palette,
+                      ),
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
+                          title: "Doğal Afet Merkezi",
+                          subtitle:
+                              "Doğal Afetler hakkında bilgiler, gerekli araçlar ve hızlı iletişim bilgileri hakkında bir araç kümesi.",
+                          icon: Icons.health_and_safety),
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
+                          title: "ByBug Sineması",
+                          subtitle:
+                              "ByBug geliştiricilerinin ve editörlerinin tavsiye ettiği filmler ve hakkında yorumlamalar. Film mi arıyorsun? O halde seni şöyle alalım!",
+                          icon: Icons.movie),
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
+                          title: "Kariyer",
+                          subtitle:
+                              "ByBug'da çalışmak ister misin? ByBug'da Grafik Tasarım, Flutter Developer, Flutter Mentor gibi birçok alanda görev yapabilirsiniz.",
+                          icon: Icons.group),
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
+                          title: "Tüm Hizmetlerimiz",
+                          subtitle:
+                              "ByBug size neler sunar? İşte tüm hizmetlerimizin bir listesi!",
+                          icon: Icons.description),
+                      IconTitleText(
+                          title: "Çok Yakında!",
+                          event: () => Get.to(const ComingSoon()),
+                          subtitle:
+                              "Buraya çok yakında yeni bir modül eklenecektir.",
+                          icon: Icons.punch_clock_rounded),
+                      IconTitleText(
+                          event: () => Get.to(const ComingSoon()),
+                          title: "Çok Yakında!",
+                          subtitle:
+                              "Buraya çok yakında yeni bir modül eklenecektir.",
+                          icon: Icons.punch_clock_rounded),
                     ],
                   ),
                 ),
                 const SizedBox(height: 20),
-                Wrap(
-                  children: const [
-                    ScoreWidget(
-                      scoreText: "Toplam Sipariş Sayısı",
-                      score: "24",
-                      color: Color.fromARGB(255, 13, 18, 31),
-                    ),
-                    ScoreWidget(
-                      scoreText: "Toplam Bağımsız Proje Sayısı",
-                      score: "3",
-                      color: Color.fromARGB(255, 13, 18, 31),
-                    ),
-                    ScoreWidget(
-                      scoreText: "Destek Olduğumuz Proje Sayısı",
-                      score: "52",
-                      color: Color.fromARGB(255, 13, 18, 31),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
                 Column(
                   children: [
-                    BannerWidget(
-                      constraints: constraints,
-                      image: "assets/images/A3.jpg",
-                      left: true,
-                      miniTitle: "ByBug, her zaman kolay araçlara yönelir.",
-                      title: "Kolay, erişilebilir ve sade!",
-                      subtitle:
-                          "ByBug, projeler geliştirirken her zaman en erişilebilir ve basit araçları kullanır. Mobil uygulama geliştirirken projeyi müşteriye teslim ettiğimizde, müşterimizin projeyi düzenleyebilmesi için sürükle-bırak mantığına sahip Kodular isimli aracı kullanırız. Web site geliştirirken projeyi müşteriye teslim ettiğimizde, müşterimizin projeyi düzenleyebilmesi için sürükle-bırak mantığına sahip WordPress isimli aracı kullanırız.",
-                    ),
-                    BannerWidget(
-                      constraints: constraints,
-                      image: "assets/images/A1.jpg",
-                      left: false,
-                      miniTitle: "ByBug, müşterilerinin fikirlerini önemser.",
-                      title: "Müşteri ne derse, o olur!",
-                      subtitle:
-                          "ByBug içerisinde projesi olan müşterimiz, projenin tüm detaylarına aktif olarak müdahalede bulunabilir ve eğer isterse projenin ortasında, projede kendi eliyle değişiklik yapabilir. ByBug ekibi esnek çalışır ve tüm durumlara karşı hazırlıklıdır.",
-                    ),
                     SizedBox(
                       width: constraints.maxWidth - 50,
                       child: Padding(

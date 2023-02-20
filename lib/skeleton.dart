@@ -1,5 +1,6 @@
-import 'package:bybug/page/desktop/auth/login.dart';
-import 'package:bybug/page/desktop/profile/profile.dart';
+import 'package:bybug/page/auth/login.dart';
+import 'package:bybug/page/locale/home.dart';
+import 'package:bybug/page/locale/profile.dart';
 import 'package:bybug/private/add_data.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quickalert/quickalert.dart';
-import 'page/desktop/pages/home.dart';
 import 'theme/color.dart';
 import 'widget/button.dart';
 

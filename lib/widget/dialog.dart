@@ -54,4 +54,19 @@ class ByBugDialg {
       text: text,
     );
   }
+
+  static void info(BuildContext context, BoxConstraints constraints,
+      String title, String text) {
+    QuickAlert.show(
+      context: context,
+      type: QuickAlertType.info,
+      backgroundColor: ThemeColors().backgroundColor,
+      textColor: Colors.white,
+      titleColor: Colors.white,
+      confirmBtnColor: Colors.transparent,
+      title: title,
+      confirmBtnText: "Tamam",
+      text: text,
+    );
+  }
 }

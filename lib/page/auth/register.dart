@@ -1,19 +1,23 @@
-import 'package:bybug/page/desktop/auth/register.dart';
-import 'package:bybug/page/desktop/profile/profile.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
-import 'package:bybug/widget/dialog.dart';
 import 'package:bybug/widget/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+import '../../../widget/dialog.dart';
+import '../../web/locale/profile.dart';
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+class RegisterPage extends StatelessWidget {
+  RegisterPage({super.key});
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  final String nowTime =
+      "${DateTime.now().day}-${DateTime.now().month}-${DateTime.now().year} ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}";
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,7 @@ class LoginPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "ByBugWeb'e Giriş Yap!",
+                            "ByBugWeb'e Kayıt Ol!",
                             style: GoogleFonts.poppins(
                               fontSize: 25,
                               color: Colors.white,
@@ -61,6 +65,10 @@ class LoginPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             CustomTextField(
+                                type: 4,
+                                textfieldController: nameController,
+                                labelText: "Kullanıcı Adı"),
+                            CustomTextField(
                                 type: 3,
                                 textfieldController: emailController,
                                 labelText: "E-posta"),
@@ -70,11 +78,47 @@ class LoginPage extends StatelessWidget {
                               labelText: "Parola",
                             ),
                             Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Kayıt olarak ByBug'ın Gizlilik Sözleşmesini kabul etmiş olursunuz.",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Padding(
                               padding: const EdgeInsets.all(10),
                               child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+                                    InkWell(
+                                      borderRadius: BorderRadius.circular(5),
+                                      onTap: () {
+                                        Get.back();
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          children: [
+                                            const Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Icon(Icons.arrow_back,
+                                                  color: Colors.white70,
+                                                  size: 18),
+                                            ),
+                                            Text(
+                                              "Giriş Yapın!",
+                                              style: GoogleFonts.openSans(
+                                                fontSize: 14,
+                                                color: Colors.white70,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                     InkWell(
                                       borderRadius: BorderRadius.circular(5),
                                       onTap: () {},
@@ -99,52 +143,34 @@ class LoginPage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    InkWell(
-                                      borderRadius: BorderRadius.circular(5),
-                                      onTap: () {
-                                        Get.to(
-                                          RegisterPage(),
-                                        );
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              "Hesap Oluşturun!",
-                                              style: GoogleFonts.openSans(
-                                                fontSize: 14,
-                                                color: Colors.white70,
-                                              ),
-                                            ),
-                                            const Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Icon(Icons.arrow_forward,
-                                                  color: Colors.white70,
-                                                  size: 18),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
                                   ]),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(15),
                               child: CustomButton(
-                                title: "Giriş Yap",
+                                title: "Kayıt Ol",
                                 event: () async {
-                                  List status = await FirebaseEditor.login(
+                                  List messageList =
+                                      await FirebaseEditor.register(
+                                    emailController.text,
+                                    passwordController.text,
+                                    [
+                                      "https://raw.githubusercontent.com/JeaFrid/ByBugWeb/master/assets/images/logo-classic.png",
+                                      nameController.text,
                                       emailController.text,
-                                      passwordController.text);
-                                  status[0] == 1
+                                      passwordController.text,
+                                      nowTime,
+                                      "Türkiye"
+                                    ],
+                                  );
+                                  messageList[0] == "1"
                                       ? Get.offAll(const ProfilePage())
                                       // ignore: use_build_context_synchronously
                                       : ByBugDialg.error(
                                           context,
                                           constraints,
-                                          "Giriş Başarısız!",
-                                          status[1].toString());
+                                          "Kayıt Başarısız!",
+                                          messageList[1].toString());
                                 },
                               ),
                             ),
