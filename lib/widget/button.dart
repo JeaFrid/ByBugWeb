@@ -6,12 +6,19 @@ import '../theme/color.dart';
 class CustomButton extends StatelessWidget {
   final String title;
   final void Function()? event;
-  const CustomButton({super.key, required this.title, this.event});
+  final void Function()? onLongPress;
+  const CustomButton({
+    super.key,
+    required this.title,
+    this.event,
+    this.onLongPress,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: event ?? () {},
+      onLongPress: onLongPress ?? () {},
       hoverColor: ThemeColors().focusColor,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),

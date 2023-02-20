@@ -1,3 +1,4 @@
+import 'package:bybug/page/desktop/auth/login.dart';
 import 'package:bybug/page/desktop/auth/register.dart';
 import 'package:bybug/page/desktop/page_blog/blog_add.dart';
 import 'package:bybug/services/firebase_editor.dart';
@@ -82,7 +83,7 @@ class _HomeBlogState extends State<HomeBlog> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          isSing ? Get.to(const BlogAdd()) : Get.to(RegisterPage());
+          isSing ? Get.to(const BlogAdd()) : Get.to(LoginPage());
         },
         child: const Icon(Icons.add),
       ),

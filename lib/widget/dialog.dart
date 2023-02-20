@@ -39,4 +39,19 @@ class ByBugDialg {
       confirmBtnText: "Kapat",
     );
   }
+
+  static void error(BuildContext context, BoxConstraints constraints,
+      String title, String text) {
+    QuickAlert.show(
+      context: context,
+      type: QuickAlertType.error,
+      backgroundColor: ThemeColors().backgroundColor,
+      textColor: Colors.white,
+      titleColor: Colors.white,
+      confirmBtnColor: Colors.transparent,
+      title: title,
+      confirmBtnText: "Tamam",
+      text: text,
+    );
+  }
 }

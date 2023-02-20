@@ -1,9 +1,13 @@
+import 'package:bybug/page/desktop/auth/login.dart';
 import 'package:bybug/page/desktop/auth/register.dart';
 import 'package:bybug/page/desktop/profile/profile.dart';
+import 'package:bybug/private/add_data.dart';
 import 'package:bybug/services/firebase_editor.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quickalert/quickalert.dart';
 import 'page/desktop/pages/home.dart';
 import 'theme/color.dart';
 import 'widget/button.dart';
@@ -94,7 +98,32 @@ class _SkeletonState extends State<Skeleton> {
                         CustomButton(
                           //  title: p1.maxWidth.toString(),
                           title: "ByBugWeb",
-                          event: () => Get.offAll(const HomePageDesktop()),
+                          onLongPress: () {
+                            String email =
+                                FirebaseAuth.instance.currentUser == null
+                                    ? "null@null.com"
+                                    : FirebaseAuth.instance.currentUser!.email
+                                        .toString();
+                            if (email == "jeafriday@gmail.com") {
+                              Get.to(AddDataPage());
+                            } else {
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                backgroundColor: ThemeColors().backgroundColor,
+                                textColor: Colors.white,
+                                titleColor: Colors.white,
+                                confirmBtnColor: Colors.transparent,
+                                title: "İzinsiz Giriş!",
+                                confirmBtnText: "Tamam",
+                                text:
+                                    "Yönetici paneline girebilmek için ByBugWeb'de yönetici olmalısınız.",
+                              );
+                            }
+                          },
+                          event: () => Get.offAll(
+                            const HomePageDesktop(),
+                          ),
                         ),
                         CustomButton(
                           title: "Market",
@@ -124,7 +153,7 @@ class _SkeletonState extends State<Skeleton> {
                                         child: InkWell(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          onTap: () => Get.to(RegisterPage()),
+                                          onTap: () => Get.to(LoginPage()),
                                           hoverColor: const Color.fromARGB(
                                               255, 19, 24, 40),
                                           child: Container(
@@ -139,7 +168,7 @@ class _SkeletonState extends State<Skeleton> {
                                             padding: const EdgeInsets.symmetric(
                                                 vertical: 5, horizontal: 16),
                                             child: Text(
-                                              "Kayıt Ol",
+                                              "Giriş Yapın!",
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 color: Colors.white,

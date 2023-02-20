@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../widget/dialog.dart';
+
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
@@ -163,8 +165,12 @@ class RegisterPage extends StatelessWidget {
                                   );
                                   messageList[0] == "1"
                                       ? Get.offAll(const ProfilePage())
-                                      : Get.snackbar("Uyarı", messageList[1],
-                                          colorText: Colors.white);
+                                      // ignore: use_build_context_synchronously
+                                      : ByBugDialg.error(
+                                          context,
+                                          constraints,
+                                          "Kayıt Başarısız!",
+                                          messageList[1].toString());
                                 },
                               ),
                             ),

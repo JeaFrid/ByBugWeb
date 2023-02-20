@@ -1,7 +1,9 @@
 import 'package:bybug/page/desktop/auth/register.dart';
+import 'package:bybug/page/desktop/profile/profile.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
+import 'package:bybug/widget/dialog.dart';
 import 'package:bybug/widget/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -132,8 +134,17 @@ class LoginPage extends StatelessWidget {
                               child: CustomButton(
                                 title: "Giriş Yap",
                                 event: () async {
-                                  FirebaseEditor.login(emailController.text,
+                                  List status = await FirebaseEditor.login(
+                                      emailController.text,
                                       passwordController.text);
+                                  status[0] == 1
+                                      ? Get.offAll(const ProfilePage())
+                                      // ignore: use_build_context_synchronously
+                                      : ByBugDialg.error(
+                                          context,
+                                          constraints,
+                                          "Giriş Başarısız!",
+                                          status[1].toString());
                                 },
                               ),
                             ),
@@ -141,7 +152,9 @@ class LoginPage extends StatelessWidget {
                               padding: const EdgeInsets.all(12),
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
-                                onTap: () {},
+                                onTap: () {
+                                  Get.back();
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(

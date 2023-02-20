@@ -40,7 +40,7 @@ class FirebaseEditor {
   static String encode(List value) {
     String feValue = "";
     for (var count = 0; count < value.length; count++) {
-      feValue = "$feValue~~!feValueIndex!~~ ${value[count]}";
+      feValue = "$feValue~~!feValueIndex!~~${value[count]}";
     }
     return feValue;
   }

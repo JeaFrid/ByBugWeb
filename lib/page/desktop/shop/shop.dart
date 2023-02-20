@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../private/add_data.dart';
 import '../../../widget/product.dart';
 import '../../../widget/shop_button.dart';
 import '../../../widget/stories.dart';
@@ -25,6 +26,7 @@ class _ShopPageState extends State<ShopPage> {
 
   ///Rx Veriables
   RxList storyList = [].obs;
+  RxList productList = [].obs;
   RxBool status = false.obs;
 
   ///Get Stories Function
@@ -32,6 +34,7 @@ class _ShopPageState extends State<ShopPage> {
     //Value list, tag.
     // Example: [sdasd,asdasd,asdasd,asdasd,tag];
     storyList.value = await FirebaseEditor.getOnce("story");
+    productList.value = await FirebaseEditor.getOnce("product");
     status.value = true;
   }
 
@@ -84,19 +87,11 @@ class _ShopPageState extends State<ShopPage> {
                                 ),
                               ),
                               AddCustomButton(
-                                icon: Icons.shopping_cart,
-                                text: "Dijital Ürünler",
-                                function: () {},
-                              ),
-                              AddCustomButton(
-                                icon: Icons.android,
-                                text: "Uygulama Mağazası",
-                                function: () {},
-                              ),
-                              AddCustomButton(
-                                icon: Icons.handyman,
-                                text: "Yazılım Araçları",
-                                function: () {},
+                                icon: Icons.home,
+                                text: "Eve Dön",
+                                function: () {
+                                  Get.back();
+                                },
                               ),
                             ],
                           ),
@@ -133,15 +128,26 @@ class _ShopPageState extends State<ShopPage> {
                         GestureDetector(
                           onHorizontalDragUpdate: (details) {
                             productScroll.jumpTo(
-                              productScroll.offset - details.delta.dx,
-                            );
+                                productScroll.offset - details.delta.dx);
                           },
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            controller: productScroll,
-                            child: Row(
-                              //alignment: WrapAlignment.spaceAround,
-                              children: [],
+                          child: SizedBox(
+                            height: 400,
+                            width: constraints.maxWidth - 100,
+                            child: Obx(
+                              () => ListView.builder(
+                                itemCount: productList.length,
+                                controller: productScroll,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return AddProduct(
+                                    title: productList[index][2],
+                                    productType: productList[index][4],
+                                    description: productList[index][3],
+                                    price: "Ücretsiz",
+                                    downloadLink: productList[index][5],
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),

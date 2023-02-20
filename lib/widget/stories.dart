@@ -43,7 +43,7 @@ class Stories extends StatelessWidget {
                 width: 75,
                 errorBuilder: (context, error, stackTrace) {
                   return Image.asset(
-                    "assets/images/logo-classic.png",
+                    "assets/images/storytime.jpg",
                     height: 75,
                     width: 75,
                   );
