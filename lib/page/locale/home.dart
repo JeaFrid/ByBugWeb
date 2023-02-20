@@ -1,7 +1,6 @@
-import 'package:bybug/page/blog/home.dart';
+import 'package:bybug/page/blog/blog.dart';
 import 'package:bybug/page/locale/color.dart';
 import 'package:bybug/page/locale/comingsoon.dart';
-import 'package:bybug/pages/desktop/shop/shop.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:bybug/widget/icon_title_text.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../skeleton.dart';
 import '../../../theme/color.dart';
+import '../shop/shop.dart';
 import 'fast_order.dart';
 
 class HomePageDesktop extends StatelessWidget {

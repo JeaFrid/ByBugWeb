@@ -1,5 +1,5 @@
+import 'package:bybug/page/blog/blog_add.dart';
 import 'package:bybug/page/locale/home.dart';
-import 'package:bybug/pages/desktop/page_blog/blog_add.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/widget/button.dart';
 import 'package:flutter/material.dart';

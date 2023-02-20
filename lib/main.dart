@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: LayoutBuilder(
           builder: (p0, p1) {
-            // return p1.maxWidth > 600 ? const HomeBlog() : const HomePagePhone();
             return const HomePageDesktop();
           },
         ),

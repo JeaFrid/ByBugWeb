@@ -1,3 +1,4 @@
+import 'package:bybug/page/auth/register.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/theme/color.dart';
 import 'package:bybug/widget/button.dart';
@@ -6,9 +7,7 @@ import 'package:bybug/widget/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../web/auth/register.dart';
-import '../../web/locale/profile.dart';
+import '../locale/profile.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

@@ -1,4 +1,4 @@
-import 'package:bybug/page/blog/home.dart';
+import 'package:bybug/page/blog/blog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

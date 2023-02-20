@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../widget/dialog.dart';
-import '../../web/locale/profile.dart';
+import '../locale/profile.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});

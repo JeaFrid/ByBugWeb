@@ -1,7 +1,8 @@
-import 'package:bybug/pages/desktop/page_blog/blog_content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../page/blog/blog_content.dart';
 
 class BlogWidget extends StatelessWidget {
   final void Function()? event;
