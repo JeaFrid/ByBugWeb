@@ -62,13 +62,18 @@ class _ShopPageState extends State<ShopPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: Text(
-                                      "ByBug Dijital Market",
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.white70,
-                                        fontSize: 30,
+                                  Visibility(
+                                    visible: constraints.maxWidth > 800
+                                        ? true
+                                        : false,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Text(
+                                        "ByBug Dijital Market",
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white70,
+                                          fontSize: 30,
+                                        ),
                                       ),
                                     ),
                                   ),

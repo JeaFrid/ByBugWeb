@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: LayoutBuilder(
           builder: (p0, p1) {
-            return const HomePageDesktop();
+            return const HomePage();
           },
         ),
       ),

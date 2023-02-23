@@ -1,5 +1,5 @@
 import 'package:bybug/page/auth/login.dart';
-import 'package:bybug/pages/desktop/page_blog/blog_add.dart';
+import 'package:bybug/page/blog/blog_add.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/services/get_blog.dart';
 import 'package:bybug/skeleton.dart';
@@ -55,6 +55,7 @@ class _HomeBlogState extends State<HomeBlog> {
                               homeScrollController.offset - details.delta.dy);
                         },
                         child: ListView.builder(
+                          controller: homeScrollController,
                           // physics: const NeverScrollableScrollPhysics(),
                           itemCount: blogList.length,
                           itemBuilder: (context, index) {

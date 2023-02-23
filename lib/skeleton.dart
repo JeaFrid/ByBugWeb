@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quickalert/quickalert.dart';
+import 'page/extra/mobile_mobile.dart';
 import 'theme/color.dart';
 import 'widget/button.dart';
 
@@ -49,7 +50,7 @@ class _SkeletonState extends State<Skeleton> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (p0, p1) {
-        return p1.maxWidth > 680 ? pc(p1) : mobile(p1);
+        return p1.maxWidth > 900 ? pc(p1) : mobile(p1);
       },
     );
   }
@@ -76,6 +77,7 @@ class _SkeletonState extends State<Skeleton> {
                       children: [
                         Text(
                           widget.title ?? "ByBugWeb!",
+                          //p1.maxWidth.toString(),
                           style: GoogleFonts.poppins(
                             fontSize: 25,
                             color: Colors.white,
@@ -121,20 +123,20 @@ class _SkeletonState extends State<Skeleton> {
                             }
                           },
                           event: () => Get.offAll(
-                            const HomePageDesktop(),
+                            const HomePage(),
                           ),
                         ),
                         CustomButton(
                           title: "Market",
-                          event: () => Get.offAll(const HomePageDesktop()),
+                          event: () => Get.offAll(const HomePage()),
                         ),
                         CustomButton(
                           title: "Bize Ulaş",
-                          event: () => Get.offAll(const HomePageDesktop()),
+                          event: () => Get.offAll(const HomePage()),
                         ),
                         CustomButton(
                           title: "Hakkımızda",
-                          event: () => Get.offAll(const HomePageDesktop()),
+                          event: () => Get.offAll(const HomePage()),
                         ),
                         Obx(
                           () => SizedBox(
@@ -232,11 +234,15 @@ class _SkeletonState extends State<Skeleton> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 50, horizontal: 40),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: Icon(Icons.menu, color: Colors.white, size: 25),
+                    InkWell(
+                      onTap: () => Get.to(const MobileMenu()),
+                      borderRadius: BorderRadius.circular(5),
+                      child: const Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Icon(Icons.menu, color: Colors.white, size: 25),
+                      ),
                     ),
                     Column(
                       children: [

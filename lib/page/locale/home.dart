@@ -12,8 +12,8 @@ import '../../../theme/color.dart';
 import '../shop/shop.dart';
 import 'fast_order.dart';
 
-class HomePageDesktop extends StatelessWidget {
-  const HomePageDesktop({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

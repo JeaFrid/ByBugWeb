@@ -120,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       title: "Çıkış Yap",
                                       event: () {
                                         FirebaseEditor.logout();
-                                        Get.offAll(const HomePageDesktop());
+                                        Get.offAll(const HomePage());
                                       },
                                     )
                                   ],
@@ -135,8 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     subtitle:
                                         "ByBug'ın ana sayfasına hızlı bir gidiş yolu!",
                                     icon: Icons.home,
-                                    event: () =>
-                                        Get.to(const HomePageDesktop()),
+                                    event: () => Get.to(const HomePage()),
                                   ),
                                   IconTitleText(
                                     title: "Blog Yaz!",
