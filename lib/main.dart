@@ -1,3 +1,5 @@
+import 'package:bybug/page/auth/login.dart';
+import 'package:bybug/page/auth/register.dart';
 import 'package:bybug/page/locale/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: LayoutBuilder(
           builder: (p0, p1) {
-            return const HomePage();
+            return RegisterPage();
           },
         ),
       ),
