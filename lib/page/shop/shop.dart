@@ -40,7 +40,8 @@ class _ShopPageState extends State<ShopPage> {
   @override
   void initState() {
     super.initState();
-    getData();
+    Navigator.pop(context);
+    // getData();
   }
 
   @override
