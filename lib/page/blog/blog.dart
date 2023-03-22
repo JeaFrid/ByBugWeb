@@ -83,7 +83,9 @@ class _HomeBlogState extends State<HomeBlog> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          isSing ? Get.to(const BlogAdd()) : Get.to(LoginPage());
+          isSing
+              ? Navigator.of(context).pushNamed("/blog/add")
+              : Navigator.of(context).pushNamed("/login");
         },
         child: const Icon(Icons.add),
       ),

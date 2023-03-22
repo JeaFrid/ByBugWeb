@@ -104,7 +104,7 @@ class _BlogContentState extends State<BlogContent> {
               ),
               floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  Get.back();
+                  Navigator.of(context).pop();
                 },
                 child: const Icon(Icons.arrow_back),
               ),

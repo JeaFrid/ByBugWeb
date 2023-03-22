@@ -49,7 +49,7 @@ class ComingSoon extends StatelessWidget {
                   const SizedBox(height: 50),
                   CustomButton(
                     title: "Eve Dön!",
-                    event: () => Get.back(),
+                    event: () => Navigator.of(context).pop(),
                   )
                 ],
               ),

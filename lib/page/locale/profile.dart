@@ -1,4 +1,5 @@
 import 'package:bybug/page/blog/blog_add.dart';
+import 'package:bybug/page/locale/comingsoon.dart';
 import 'package:bybug/page/locale/home.dart';
 import 'package:bybug/services/firebase_editor.dart';
 import 'package:bybug/widget/button.dart';
@@ -120,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       title: "Çıkış Yap",
                                       event: () {
                                         FirebaseEditor.logout();
-                                        Get.offAll(const HomePage());
+                                        Navigator.of(context).pushNamed("/");
                                       },
                                     )
                                   ],
@@ -135,11 +136,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                     subtitle:
                                         "ByBug'ın ana sayfasına hızlı bir gidiş yolu!",
                                     icon: Icons.home,
-                                    event: () => Get.to(const HomePage()),
+                                    event: () => Navigator.of(context).pushNamed("/"),
                                   ),
                                   IconTitleText(
                                     title: "Blog Yaz!",
-                                    event: () => Get.to(const BlogAdd()),
+                                    event: () => Navigator.of(context).pushNamed("/comingsoon"),
                                     subtitle:
                                         "ByBug Blog'a bir blog yazısı bırakmak için bu modülü kullanabilirsiniz.",
                                     icon: Icons.text_snippet,

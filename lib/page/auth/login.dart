@@ -113,9 +113,8 @@ class LoginPage extends StatelessWidget {
                                     InkWell(
                                       borderRadius: BorderRadius.circular(5),
                                       onTap: () {
-                                        Get.to(
-                                          RegisterPage(),
-                                        );
+                                        Navigator.pushNamed(
+                                            context, "/register");
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -149,8 +148,8 @@ class LoginPage extends StatelessWidget {
                                       emailController.text,
                                       passwordController.text);
                                   status[0] == 1
-                                      ? Get.offAll(const ProfilePage())
-                                      // ignore: use_build_context_synchronously
+                                      ? Navigator.of(context)
+                                          .pushNamed("/profile")
                                       : ByBugDialg.error(
                                           context,
                                           constraints,
@@ -164,7 +163,7 @@ class LoginPage extends StatelessWidget {
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
-                                  Get.back();
+                                  Navigator.of(context).pop();
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -266,7 +265,8 @@ class LoginPage extends StatelessWidget {
                                     emailController.text,
                                     passwordController.text);
                                 status[0] == 1
-                                    ? Get.offAll(const ProfilePage())
+                                    ? Navigator.of(context)
+                                        .pushNamed("/profile")
                                     // ignore: use_build_context_synchronously
                                     : ByBugDialg.error(
                                         context,
@@ -295,9 +295,8 @@ class LoginPage extends StatelessWidget {
                             child: InkWell(
                               borderRadius: BorderRadius.circular(5),
                               onTap: () {
-                                Get.to(
-                                  RegisterPage(),
-                                );
+                                Navigator.of(context)
+                                    .pushNamed("/register");
                               },
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -317,7 +316,7 @@ class LoginPage extends StatelessWidget {
                             child: InkWell(
                               borderRadius: BorderRadius.circular(5),
                               onTap: () {
-                                Get.back();
+                                Navigator.of(context).pop();
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(16),

@@ -55,7 +55,7 @@ class ShopContent extends StatelessWidget {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  Get.back();
+                                  Navigator.of(context).pop();
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(

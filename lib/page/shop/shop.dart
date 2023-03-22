@@ -93,7 +93,7 @@ class _ShopPageState extends State<ShopPage> {
                                 icon: Icons.home,
                                 text: "Eve Dön",
                                 function: () {
-                                  Get.back();
+                                  Navigator.of(context).pop();
                                 },
                               ),
                             ],

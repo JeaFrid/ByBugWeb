@@ -11,6 +11,7 @@ import '../../../skeleton.dart';
 import '../../../theme/color.dart';
 import '../shop/shop.dart';
 import 'fast_order.dart';
+import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -65,7 +66,10 @@ class HomePage extends StatelessWidget {
                         hoverColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onTap: () {},
+                        onTap: () {
+                          js.context.callMethod("open",
+                              ["https://instagram.com/kirmizipatika.ml"]);
+                        },
                         child: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: FaIcon(
@@ -83,7 +87,10 @@ class HomePage extends StatelessWidget {
                         hoverColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onTap: () {},
+                        onTap: () {
+                          js.context.callMethod(
+                              "open", ["https://t.me/ByBugOfficial"]);
+                        },
                         child: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: FaIcon(
@@ -101,29 +108,14 @@ class HomePage extends StatelessWidget {
                         hoverColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onTap: () {},
+                        onTap: () {
+                          js.context.callMethod(
+                              "open", ["https://github.com/JeaFrid"]);
+                        },
                         child: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: FaIcon(
                             FontAwesomeIcons.github,
-                            color: Colors.white54,
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () {},
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: FaIcon(
-                            FontAwesomeIcons.whatsapp,
                             color: Colors.white54,
                             size: 30,
                           ),
@@ -136,7 +128,8 @@ class HomePage extends StatelessWidget {
                 CustomButton(
                   title: "Teklif Al",
                   event: () {
-                    Get.to(FastOrder());
+                    js.context
+                        .callMethod("open", ["https://t.me/ByBugOfficial"]);
                   },
                 ),
                 const SizedBox(height: 20),
@@ -145,88 +138,88 @@ class HomePage extends StatelessWidget {
                   child: Wrap(
                     children: [
                       IconTitleText(
-                        event: () => Get.to(FastOrder()),
+                        event: () => Navigator.of(context).pushNamed("/comingsoon"),
                         title: "Hızlı Bir Sipariş",
                         subtitle:
                             "Müşteri Temsilcilerine bağlanmadan, hızla sipariş notunu oluştur ve ortalama bütçene göre projene değer biçelim!",
                         icon: Icons.shopping_cart,
                       ),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Müşteri Desteği",
                           subtitle:
                               "Bize sormak istediğiniz tüm sorular için Whatsapp ve Telegram hatlarımız sürekli olarak hizmetinizdedir.",
                           icon: Icons.help_center),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Tüm Hizmetlerimiz",
                           subtitle:
                               "Birçok aktif hizmetimiz var ve sizler için geliştirmeye devam ediyoruz. Hizmetlerimiz hakkında detaylı bilgi ve destek almak için buraya tıklayın.",
                           icon: Icons.account_tree_sharp),
                       IconTitleText(
-                          event: () => Get.to(const ShopPage()),
+                          event: () => Navigator.of(context).pushNamed("/shop"),
                           title: "Teknoloji Marketi",
                           subtitle:
                               "Birçok yazılım ürününün bulunduğu ByBug Sanal Marketine giderek daha fazla hazır ürünü satın alabilir ve direkt kullanmaya başlayabilirsiniz.",
                           icon: Icons.shopping_basket_sharp),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Geliştirici Portalı",
                           subtitle:
                               "Geliştiriciler için ByBug Servislerine, ürün ve hizmetlerine erişim sağlayabilmelerini sağlayan dökümantasyona erişmek çok kolay!",
                           icon: Icons.code),
                       IconTitleText(
                           title: "ByBug Blog",
-                          event: () => Get.to(const HomeBlog()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           subtitle:
                               "Blog yazarlarımız tarafından yayınlanan yazılarımıza ulaşmak, yazılar yayımlamak ve yayımlananları okumak için ByBug Blog'u ziyaret edin.",
                           icon: Icons.code),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "ByBug Akademi",
                           subtitle:
                               "ByBug Projeler Grubunun sağladığı ByBug Akademi Resmi Web Uygulaması",
                           icon: Icons.web),
                       //Set Divider
                       IconTitleText(
-                        event: () => Get.to(ColorConverter()),
+                        event: () => Navigator.of(context).pushNamed("/utils/color-conventer"),
                         title: "Renk Dönüştürme Aracı",
                         subtitle:
                             "Tasarımcılar için online renk dönüştürme aracı. Hızlı, basit, işlevsel!",
                         icon: Icons.palette,
                       ),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Doğal Afet Merkezi",
                           subtitle:
                               "Doğal Afetler hakkında bilgiler, gerekli araçlar ve hızlı iletişim bilgileri hakkında bir araç kümesi.",
                           icon: Icons.health_and_safety),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "ByBug Sineması",
                           subtitle:
                               "ByBug geliştiricilerinin ve editörlerinin tavsiye ettiği filmler ve hakkında yorumlamalar. Film mi arıyorsun? O halde seni şöyle alalım!",
                           icon: Icons.movie),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Kariyer",
                           subtitle:
                               "ByBug'da çalışmak ister misin? ByBug'da Grafik Tasarım, Flutter Developer, Flutter Mentor gibi birçok alanda görev yapabilirsiniz.",
                           icon: Icons.group),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Tüm Hizmetlerimiz",
                           subtitle:
                               "ByBug size neler sunar? İşte tüm hizmetlerimizin bir listesi!",
                           icon: Icons.description),
                       IconTitleText(
                           title: "Çok Yakında!",
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           subtitle:
                               "Buraya çok yakında yeni bir modül eklenecektir.",
                           icon: Icons.punch_clock_rounded),
                       IconTitleText(
-                          event: () => Get.to(const ComingSoon()),
+                          event: () => Navigator.of(context).pushNamed("/comingsoon"),
                           title: "Çok Yakında!",
                           subtitle:
                               "Buraya çok yakında yeni bir modül eklenecektir.",

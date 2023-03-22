@@ -206,7 +206,7 @@ class BlogAddCard extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    Get.back();
+                                    Navigator.of(context).pop();
                                   },
                                   borderRadius: BorderRadius.circular(10),
                                   child: const Padding(
@@ -502,7 +502,7 @@ class BlogAddCard extends StatelessWidget {
                                           ],
                                         );
                                         message == "successful"
-                                            ? Get.offAll(const HomeBlog())
+                                            ? Navigator.of(context).pushNamed("/blog")
                                             : Get.snackbar(
                                                 "Hata Oluştu!", message);
                                       }),

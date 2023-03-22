@@ -25,7 +25,7 @@ class MobileMenu extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () => Get.back(),
+                  onTap: () => Navigator.of(context).pop(),
                   borderRadius: BorderRadius.circular(5),
                   child: const Padding(
                     padding: EdgeInsets.all(10),
@@ -69,7 +69,7 @@ class MobileMenu extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: CustomButton(
                       title: "ByBugWeb!",
-                      event: () => Get.offAll(const HomePage()),
+                      event: () => Navigator.of(context).pushNamed("/")
                     ),
                   ),
                   const Padding(

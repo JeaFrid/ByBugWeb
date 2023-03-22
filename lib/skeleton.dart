@@ -11,6 +11,7 @@ import 'package:quickalert/quickalert.dart';
 import 'page/extra/mobile_mobile.dart';
 import 'theme/color.dart';
 import 'widget/button.dart';
+import 'dart:js' as js;
 
 class Skeleton extends StatefulWidget {
   final Widget child;
@@ -106,7 +107,7 @@ class _SkeletonState extends State<Skeleton> {
                                     : FirebaseAuth.instance.currentUser!.email
                                         .toString();
                             if (email == "jeafriday@gmail.com") {
-                              Get.to(AddDataPage());
+                              Navigator.of(context).pushNamed("/admin");
                             } else {
                               QuickAlert.show(
                                 context: context,
@@ -122,22 +123,21 @@ class _SkeletonState extends State<Skeleton> {
                               );
                             }
                           },
-                          event: () => Get.offAll(
-                            const HomePage(),
-                          ),
+                          event: () => Navigator.of(context).pushNamed("/"),
                         ),
                         CustomButton(
                           title: "Market",
-                          event: () => Get.offAll(const HomePage()),
+                          event: () => js.context
+                              .callMethod("open", ["https://shop.bybug.net"]),
                         ),
                         CustomButton(
-                          title: "Bize Ulaş",
-                          event: () => Get.offAll(const HomePage()),
-                        ),
-                        CustomButton(
+                            title: "Bize Ulaş",
+                            event: () => js.context.callMethod(
+                                "open", ["https://t.me/ByBugOfficial"])),
+                        /*CustomButton(
                           title: "Hakkımızda",
                           event: () => Get.offAll(const HomePage()),
-                        ),
+                        ),*/
                         Obx(
                           () => SizedBox(
                             child: status.value == true
@@ -154,7 +154,7 @@ class _SkeletonState extends State<Skeleton> {
                                         child: InkWell(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          onTap: () => Get.to(LoginPage()),
+                                          onTap: () => Navigator.of(context).pushNamed("/login"),
                                           hoverColor: const Color.fromARGB(
                                               255, 19, 24, 40),
                                           child: Container(
@@ -187,7 +187,7 @@ class _SkeletonState extends State<Skeleton> {
                                           splashColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () =>
-                                              Get.to(const ProfilePage()),
+                                              Navigator.of(context).pushNamed("/profile"),
                                           child: Image.network(
                                             profilePhotos.value,
                                             width: 40,
@@ -237,7 +237,7 @@ class _SkeletonState extends State<Skeleton> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () => Get.to(const MobileMenu()),
+                      onTap: () => Navigator.of(context).pushNamed("/menu"),
                       borderRadius: BorderRadius.circular(5),
                       child: const Padding(
                         padding: EdgeInsets.all(10),
